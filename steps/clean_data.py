@@ -1,16 +1,16 @@
 import logging
 from typing import Tuple
-
+# from zenml.steps import Output, step
+from zenml import step
+from typing_extensions import Annotated
 import pandas as pd
 from model.data_cleaning import (
     DataCleaning,
     DataDivideStrategy,
     DataPreprocessStrategy,
 )
-from typing_extensions import Annotated
 
-# from zenml.steps import Output, step
-from zenml import step
+
 
 
 @step
