@@ -1,5 +1,5 @@
 import logging
-
+from typing import Tuple
 import mlflow
 import numpy as np
 import pandas as pd
@@ -9,15 +9,14 @@ from typing_extensions import Annotated
 from zenml import step
 from zenml.client import Client
 
-experiment_tracker = Client().active_stack.experiment_tracker
-from typing import Tuple
-
+# Ensure the experiment tracker is correctly configured
+client = Client()
+experiment_tracker = client.active_stack.experiment_tracker
 
 @step(experiment_tracker=experiment_tracker.name)
 def evaluation(
     model: RegressorMixin, x_test: pd.DataFrame, y_test: pd.Series
 ) -> Tuple[Annotated[float, "r2_score"], Annotated[float, "rmse"]]:
-
     """
     Args:
         model: RegressorMixin
@@ -28,15 +27,6 @@ def evaluation(
         rmse: float
     """
     try:
-        # prediction = model.predict(x_test)
-        # evaluation = Evaluation()
-        # r2_score = evaluation.r2_score(y_test, prediction)
-        # mlflow.log_metric("r2_score", r2_score)
-        # mse = evaluation.mean_squared_error(y_test, prediction)
-        # mlflow.log_metric("mse", mse)
-        # rmse = np.sqrt(mse)
-        # mlflow.log_metric("rmse", rmse)
-
         prediction = model.predict(x_test)
 
         # Using the MSE class for mean squared error calculation

@@ -13,7 +13,6 @@ from model.model_dev import (
 from sklearn.base import RegressorMixin
 from .config import ModelNameConfig
 
-
 experiment_tracker = Client().active_stack.experiment_tracker
 
 
