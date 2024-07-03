@@ -1,13 +1,13 @@
 import logging
 from typing import Tuple
 import mlflow
-import numpy as np
+# import numpy as np
 import pandas as pd
-from model.evaluation import MSE, RMSE, R2Score
 from sklearn.base import RegressorMixin
 from typing_extensions import Annotated
 from zenml import step
 from zenml.client import Client
+from model.evaluation import MSE, RMSE, R2Score
 
 # Ensure the experiment tracker is correctly configured
 client = Client()
