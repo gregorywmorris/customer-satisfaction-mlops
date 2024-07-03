@@ -1,5 +1,6 @@
 import logging
-
+from zenml import step
+from zenml.client import Client
 import mlflow
 import pandas as pd
 from model.model_dev import (
@@ -10,10 +11,8 @@ from model.model_dev import (
     XGBoostModel,
 )
 from sklearn.base import RegressorMixin
-from zenml import step
-from zenml.client import Client
-
 from .config import ModelNameConfig
+
 
 experiment_tracker = Client().active_stack.experiment_tracker
 
