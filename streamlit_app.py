@@ -19,7 +19,7 @@ def main():
     st.markdown(
         """ 
     #### Problem Statement 
-     The objective here is to predict the customer satisfaction score for a given order based on features like order status, price, payment, etc. I will be using [ZenML](https://zenml.io/) to build a production-ready pipeline to predict the customer satisfaction score for the next order or purchase.    """
+    The objective here is to predict the customer satisfaction score for a given order based on features like order status, price, payment, etc. I will be using [ZenML](https://zenml.io/) to build a production-ready pipeline to predict the customer satisfaction score for the next order or purchase.    """
     )
     st.image(whole_pipeline_image, caption="Whole Pipeline")
     st.markdown(
@@ -93,10 +93,8 @@ def main():
         data = np.array(json_list)
         pred = service.predict(data)
         st.success(
-            "Your Customer Satisfactory rate(range between 0 - 5) with given product details is :-{}".format(
-                pred
+            f"Your Customer Satisfactory rate(range between 0 - 5) with given product details is :-{pred}"
             )
-        )
     if st.button("Results"):
         st.write(
             "We have experimented with two ensemble and tree based models and compared the performance of each model. The results are as follows:"
